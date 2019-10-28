@@ -9,14 +9,17 @@ get "/secret" do
   "This is a secret! Get outta here!"
 end
 
-get "/who_am_i" do
-  "I AM IRON MAN"
+get "/name" do
+  erb(:form)
 end
 
-get "/ruby" do
-  "I frickin' hate ruby, can we move on yet please?"
+post "/named-dog" do
+  p params
+  @name = params[:name]
+  erb(:index)
 end
 
-get "/dog" do
+get "/random-dog" do
+  @name = ["Bella", "Bell-dog", "Bella-blott"].sample
   erb(:index)
 end
